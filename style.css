@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(38, 2, 49);
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+h1 {
+    color: white;
+}
+h2 {
+    color: white;
+    margin: 5px;
+}
+p {
+    color: grey;
+}
+
+.app{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logoimg {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 20px;
+}
+.crate{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.beet{
+    position: absolute;
+    width: 88%;
+    height: 88%;
+    left: 7px;
+    top: 9px;
+}
+
+.sounds{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid grey;
+}
+
+.instrument{
+    border: 1px solid grey;
+    padding: 5px;
+    margin: 10px;
+}
+.instrument p{
+    text-align: center;
+}
+.pad{
+    height: 45px;
+    width: 65px;
+    border: 2px solid black;
+    margin: 5px 0;
+}
+.pad:hover {
+    border: 2px solid white;
+}
+.pad:active {
+    height: 40px;
+    width: 60px;
+}
+#Bass > div {
+    background-color: rgb(58, 173, 58);
+}
+#HiHat > div {
+    background-color: rgb(179, 164, 37);
+}
+#Cymbal > div {
+    background-color: rgb(160, 72, 32);
+}
+#Sticks > div {
+    background-color: rgb(175, 40, 47);
+}
+#Tom > div {
+    background-color: rgb(147, 50, 167);
+}
+#Snare > div {
+    background-color: rgb(37, 86, 179);
+}
+@keyframes jump{
+    0%{
+        bottom: 5%;
+        left: 15%;
+    }
+    100%{
+        bottom: 5%;
+        left: 85%;
+    }
+}
+.visual div{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    bottom: 0%;
+}
