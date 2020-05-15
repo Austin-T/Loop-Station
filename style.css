@@ -30,14 +30,14 @@ p {
 
 header{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
 
 .logoimg {
-    height: 100px;
-    width: 100px;
+    height: 70px;
+    width: 70px;
     position: relative;
     left: 0;
     top: 0;
@@ -54,8 +54,8 @@ header{
     position: absolute;
     width: 88%;
     height: 88%;
-    left: 7px;
-    top: 9px;
+    left: 5px;
+    top: 7px;
 }
 
 .sounds{
@@ -63,13 +63,22 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid grey;
+    border: 1px solid grey;
 }
 
 .instrument{
     border: 1px solid grey;
     padding: 5px;
     margin: 10px;
+}
+.padControls{
+    border: 1px solid grey;
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%
 }
 .instrument p{
     text-align: center;
@@ -86,6 +95,7 @@ header{
 .pad:active {
     height: 40px;
     width: 60px;
+    margin: 7.5px 0;
 }
 #Bass > div {
     background-color: rgb(58, 173, 58);
@@ -107,18 +117,29 @@ header{
 }
 @keyframes jump{
     0%{
-        bottom: 5%;
-        left: 15%;
+        height: 0;
+    }
+    50%{
+        height: 100px;
     }
     100%{
-        bottom: 5%;
-        left: 85%;
+        height: 0;
     }
 }
 .visual div{
     position: absolute;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
+    width: 10px;
     bottom: 0%;
+}
+.visual{
+    position: relative;
+    width: 700px;
+    height: 200px;
+    border: 1px solid grey;
+}
+.looper{
+    position: relative;
+    width: 700px;
+    height: 200px;
+    border: 1px solid grey;
 }

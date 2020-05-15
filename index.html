@@ -21,7 +21,17 @@
             </div>
         </header>
         <div class="sounds">
-            <h2>Sounds</h2>
+            <div class="padControls">
+                <div class="title">
+                    <h2>Sounds</h2>
+                </div>
+                <div class="sliderBox">
+                    <p>Volume</p>
+                    <input type="range" min="0" max="100" value="75" class="slider" id="volumeRange">
+                    <p>Playback Speed</p>
+                    <input type="range" min="50" max="200" value="100" class="slider" id="speedRange">
+                </div>
+            </div>
             <div class="instrument" id="Bass">
                 <p>Bass</p>
                 <div class="pad" id="Bass1">
@@ -112,6 +122,9 @@
                     <audio class="sound" src="./sounds/Snare4.mp3"></audio>
                 </div>
             </div>
+        </div>
+        <div class="looper">
+            <h2>Looper</h2>
         </div>
         <div class="visual"></div>
     </div>

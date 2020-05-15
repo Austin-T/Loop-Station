@@ -10,22 +10,29 @@ window.addEventListener('load', () => {
         "rgb(147, 50, 167)",
         "rgb(37, 86, 179)"
     ];
+    const volumeRange = document.getElementById("volumeRange");
+    const speedRange = document.getElementById("speedRange");
 
     pads.forEach((pad, index) => {
         pad.addEventListener('click', function() {
                 sounds[index].currentTime = 0;
+                sounds[index].volume = volumeRange.value / 100;
+                sounds[index].playbackRate = speedRange.value / 100;
                 sounds[index].play();
-                createBubbles();
+                createWave(colors[Math.floor(Math.random() * 7)]);
         });
     });
-
-    const createBubbles = () => {
-        const bubble = document.createElement("div");
-        visual.appendChild(bubble);
-        bubble.style.backgroundColor = "white";
-        bubble.style.animation = 'jump 1s ease';
-        bubble.addEventListener('animationend', function(){
-            visual.removeChild(this);
-        });
+    console.log(visual.style.width);
+    const createWave = (color) => {
+        for (var i = 0; i < 10; i++){
+            const wave = document.createElement("div");
+            visual.appendChild(wave);
+            wave.style.backgroundColor = color;
+            wave.style.left = String(Math.floor(Math.random()*700)) + "px";
+            wave.style.animation = 'jump 1s ease';
+            wave.addEventListener('animationend', function(){
+                visual.removeChild(this);
+            });
+        }
     }
 });
