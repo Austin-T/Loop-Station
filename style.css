@@ -4,18 +4,74 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(38, 2, 49);
     font-family: 'Montserrat', sans-serif;
-    
 }
 h1 {
-    color: white;
+    color: black;
 }
 h2 {
-    color: white;
+    color: black;
 }
 p {
     color: grey;
+}
+.preload{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: opacity 0.5s ease;
+    text-align: center;
+}
+.preload-finish{
+    opacity: 0;
+    pointer-events: none;
+}
+.cloud1, .cloud2, .cloud3{
+    height: 100px;
+    position: absolute;
+    right: 0%;
+    filter: brightness(0.50)
+}
+.cloud1{
+    top: 25%;
+    transform: translate(100%, -25%);
+    animation: clouds 4s ease infinite;
+}
+.cloud2{
+    top: 50%;
+    transform: translate(100%, -50%);
+    animation: clouds 4s ease infinite 3s;
+}
+.cloud3{
+    top: 75%;
+    transform: translate(100%, -75%);
+    animation: clouds 4s ease infinite 1s;
+}
+.preloadLogo{
+    height: 200px;
+    animation: preloadLogo 1s ease infinite alternate;
+}
+@keyframes preloadLogo {
+    from{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(50px);
+    }
+}
+@keyframes clouds {
+    from{
+        right: 0%
+    }
+    to{
+        right: 130%
+    }
 }
 .app{
     height: 100vh;
@@ -29,28 +85,13 @@ header{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin-top: 20px;
 }
-.logoimg {
-    height: 70px;
-    width: 70px;
-    position: relative;
-    left: 0;
-    top: 0;
-    margin: 20px;
+header h1{
+    text-align: center;
 }
-.crate{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-}
-.beet{
-    position: absolute;
-    width: 88%;
-    height: 88%;
-    left: 5px;
-    top: 7px;
+header p{
+    text-align: center;
 }
 .sounds{
     display: flex;
@@ -58,11 +99,14 @@ header{
     justify-content: space-between;
     align-items: center;
     border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 .instrument{
     border: 1px solid grey;
     padding: 5px;
     margin: 10px;
+    border-radius: 5px;
 }
 .padControls{
     border: 1px solid grey;
@@ -71,7 +115,8 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 90%
+    height: 93%;
+    border-radius: 5px;
 }
 .instrument p{
     text-align: center;
@@ -81,9 +126,10 @@ header{
     width: 65px;
     border: 2px solid black;
     margin: 5px 0;
+    border-radius: 5px;
 }
 .pad:hover {
-    border: 2px solid white;
+    border: 2px solid grey;
 }
 .pad:active {
     height: 40px;
@@ -137,9 +183,11 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    border-radius: 5px;
+    margin-top: 15px;
 }
 #loopScreen{
-    border: 1px solid white;
+    border: 1px solid grey;
     width: 500px;
     height: 200px;
 }
@@ -148,6 +196,7 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    border-radius: 5px;
 }
 .loopButtons p{
     text-align: center;
@@ -155,33 +204,35 @@ header{
 }
 .state{
     border: 2px solid black;
-    background-color: white;
+    background-color: grey;
     margin: 5px 0;
     height: 45px;
     width: 65px;
+    border-radius: 5px;
 }
 .state:hover {
-    border: 2px solid white;
+    border: 2px solid grey;
 }
 .state:active {
     height: 40px;
     width: 60px;
-    margin: 7.5px 0;
+    margin: 5px 2.5px;
 }
 .clearLoop{
     border: 2px solid black;
-    background-color: red;
+    background-color: rgb(175, 40, 47);
     margin: 5px 0;
     height: 45px;
     width: 65px;
+    border-radius: 5px;
 }
 .clearLoop:hover {
-    border: 2px solid white;
+    border: 2px solid grey;
 }
 .clearLoop:active {
     height: 40px;
     width: 60px;
-    margin: 7.5px 0;
+    margin: 5px 2.5px;
 }
 .loopControls{
     border: 1px solid grey;
@@ -190,7 +241,8 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 90%
+    height: 93%;
+    border-radius: 5px;
 }
 .loopButton{
     border: 2px solid black;
@@ -198,9 +250,10 @@ header{
     margin: 5px 0;
     height: 45px;
     width: 65px;
+    border-radius: 5px;
 }
 .loopButton:hover {
-    border: 2px solid white;
+    border: 2px solid grey;
 }
 .loopButton:active {
     height: 40px;
@@ -211,4 +264,5 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    border-radius: 5px;
 }
