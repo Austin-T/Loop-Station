@@ -77,66 +77,10 @@ class Note {
         this.justPlayed = false;
     }
 }
-// class Looper {
-//     constructor(loopWidth, loopHeight, canvas){
-//         this.width = loopWidth;
-//         this.height = loopHeight;
-//         this.canvas = canvas;
-//         this.context = canvas.getContext("2d");
-//         this.paddle = new Paddle (this.width, this.height);
-//         this.notes = [];        // an array to hold all of the Note objects
-//         //this.time = 0;     // holds the time since the start of the loop
-//         this.lastUpdate = 0;    // holds the time of the last update to game objects
-//     }
-
-//     playLoop(timestamp) {
-//         // This function is responisble for plaing the looper and allowing new recording
-//         let deltaTime = timestamp - this.lastUpdate;
-//         this.lastUpdate = timestamp;
-//         this.updateObjects(deltaTime);
-//         this.clearCanvas();
-//         this.drawObjects();
-//         console.log("second round");
-//         requestAnimationFrame(this.playLoop);
-        
-//     }
-
-//     updateObjects(deltaTime) {
-//         // This function updates all objcts inside the looper (i.e. paddle, notes, etc)
-//         if (!deltaTime) return;
-//         this.paddle.update(deltaTime);
-//     }
-
-//     clearCanvas() {
-//         // This function clears the canvas and resets any objects which need to be reset
-//         this.context.clearRect(0, 0, this.width, this.height);
-//     }
-
-//     drawObjects() {
-//         // This function draws all objects to the canvas
-//         this.paddle.draw(this.context);
-//     }
-// }
-// let canvas = document.getElementById("loopScreen");
-// let context = canvas.getContext("2d");
-
-// const LOOP_WIDTH = 500;
-// const LOOP_HEIGHT = 150;
-
-// let paddle = new Paddle(LOOP_WIDTH, LOOP_HEIGHT);
-// paddle.draw(context);
-
-// function soundLoop() {
-//     // clear canvas
-//     context.clearRect(0, 0, LOOP_WIDTH, LOOP_HEIGHT)
-//     // update paddle
-//     paddle.update(time)
-// }
 
 function playLoop(timestamp) {
     // This function is responisble for plaing the looper and allowing new recording
     // let deltaTime = timestamp - lastUpdate;
-    if (!play) return;
     updateObjects(timestamp - lastUpdate);
     lastUpdate = timestamp;
     clearCanvas();
@@ -149,9 +93,9 @@ function playLoop(timestamp) {
 function updateObjects(deltaTime) {
     // This function updates all objcts inside the looper (i.e. paddle, notes, etc)
     if (!deltaTime) return;
-
+    if (!play) return;
     // update the position of the paddle
-    paddle.update(paddleSpeed, deltaTime);
+    paddle.update(tempoRange.value, deltaTime);
 
     // play all notes which have just been contacted by the paddle
     for (let i = 0; i < notes.length; i++) {
@@ -202,12 +146,13 @@ function drawObjects() {
 }
 
 function addNote(sound, color) {
+    if (!play) return;
     let sound2 = new Audio(sound.src);
     let newNote = new Note(sound2, color, paddle.getXPos(), paddle.getYPos());
     notes.push(newNote);
 }
 
-let play = true;
+let play = false;
 let width = 500;
 let height = 150;
 let canvas = document.getElementById("loopScreen");
@@ -217,19 +162,25 @@ let paddle = new Paddle (width, height);
 let notes = [];        // an array to hold all of the Note objects
 let metronome = [];    // an array to hold the position of the metronome clicks
 let lastUpdate = 0;    // holds the time of the last update to game objects
-let paddleSpeed = 5;
+//let paddleSpeed = 5;
 let savedStates = [[], [], [], [], []]; // holds arrays of notes saved by the user
 
 
 
 // create the metronome
-for (let i = 0; i <= 300; i++) {
-    if (i % 15 == 0) {
-        let audio = new Audio('./sounds/click.mp3');
-        audio.volume = 0.2;
-        metronome.push(new Note(audio, "grey", i, 0));
+function createMetronome() {
+    for (let i = 0; i <= 300; i++) {
+        if (i % 15 == 0) {
+            let audio = new Audio('./sounds/click.mp3');
+            audio.volume = 0.2;
+            metronome.push(new Note(audio, "grey", i, 0));
+        }
     }
 }
+createMetronome();
+
+const tempoRange = document.getElementById("tempoRange");
+
 playLoop(0);
 
 let states = document.getElementsByClassName("state");
@@ -254,6 +205,33 @@ for (let i = 0; i < states.length; i++) {
         }
     });
 }
+
+let playbtn = document.getElementById("play");
+playbtn.style.backgroundColor = "white";
+playbtn.addEventListener("click", function() {
+    if (this.style.backgroundColor == "white") {
+        this.style.backgroundColor = "blue";
+        play = true;
+    }
+    else {
+        this.style.backgroundColor = "white";
+        play = false;
+    }
+});
+
+let metronomebtn = document.getElementById("metronome");
+metronomebtn.style.backgroundColor = "blue";
+metronomebtn.addEventListener("click", function() {
+    if (this.style.backgroundColor == "white") {
+        this.style.backgroundColor = "blue";
+        createMetronome();
+    }
+    else {
+        this.style.backgroundColor = "white";
+        metronome = [];
+    }
+});
+
 
 let clearLoop = document.getElementById("clearLoop");
 clearLoop.addEventListener('click', function(){
@@ -285,7 +263,7 @@ clearLoop.addEventListener('click', function(){
                 addNote(sounds[index], colors[Math.floor(Math.random() * 6)]);
         });
     });
-    console.log(visual.style.width);
+
     const createWave = (color) => {
         for (var i = 0; i < 10; i++){
             const wave = document.createElement("div");

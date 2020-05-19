@@ -13,7 +13,6 @@ h1 {
 }
 h2 {
     color: white;
-    margin: 5px;
 }
 p {
     color: grey;
@@ -203,7 +202,7 @@ header{
 .loopButton:hover {
     border: 2px solid white;
 }
-.looopButton:active {
+.loopButton:active {
     height: 40px;
     width: 60px;
     margin: 7.5px 0;
