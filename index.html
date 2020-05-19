@@ -12,7 +12,7 @@
     <div class="preload" id="preload">
         <div class="preloadLogo">
             <h1>Loop Station</h1>
-            <p>Make Complex Rhythms With Only One Tap</p>
+            <p>Craft Complex Rhythms With Only One Tap</p>
         </div>
         <img class="cloud1" src="./img/cloud.png" alt="cloud1">
         <img class="cloud2" src="./img/cloud.png" alt="cloud2">
@@ -22,7 +22,7 @@
         <header>
             <div class="logotxt">
                 <h1>Loop Station</h1>
-                <p>Make Complex Rhythms With Only One Tap</p>
+                <p>Craft Complex Rhythms With Only One Tap</p>
             </div>
         </header>
         <div class="sounds">
@@ -133,13 +133,11 @@
                 <div class="title">
                     <h2>Looper</h2>
                 </div>
-                <p>Play/Pause</p>
-                <div class="loopButton" id="play"></div>
-                <p>Metronome</p>
-                <div class="loopButton" id="metronome"></div>
+                <div class="loopButton" id="play">Play/Pause</div>
+                <div class="loopButton" id="metronome">Metronome</div>
                 <div class="sliderBox">
                     <p>Tempo</p>
-                    <input type="range" min="0" max="10" value="2" class="slider" id="tempoRange">
+                    <input type="range" min="0" max="10" value="5" class="slider" id="tempoRange">
                 </div>
             </div>
             <div class="rightLoopPanel">
@@ -166,7 +164,7 @@
                 <canvas id="loopScreen"></canvas>
             </div>
         </div>
-        <div class="visual"></div>
+        <div class="visual" id="visual"></div>
     </div>
     <script src="./index.js"></script>
 </body>

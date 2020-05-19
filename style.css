@@ -249,16 +249,19 @@ header p{
     background-color: blue;
     margin: 5px 0;
     height: 45px;
-    width: 65px;
+    width: 110px;
     border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .loopButton:hover {
     border: 2px solid grey;
 }
 .loopButton:active {
     height: 40px;
-    width: 60px;
-    margin: 7.5px 0;
+    width: 100px;
+    margin: 10px 2.5px;
 }
 .rightLoopPanel{
     display: flex;
