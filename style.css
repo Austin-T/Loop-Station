@@ -8,7 +8,6 @@ body{
     font-family: 'Montserrat', sans-serif;
     
 }
-
 h1 {
     color: white;
 }
@@ -19,22 +18,19 @@ h2 {
 p {
     color: grey;
 }
-
 .app{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
-
 header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
-
 .logoimg {
     height: 70px;
     width: 70px;
@@ -57,7 +53,6 @@ header{
     left: 5px;
     top: 7px;
 }
-
 .sounds{
     display: flex;
     flex-direction: row;
@@ -65,7 +60,6 @@ header{
     align-items: center;
     border: 1px solid grey;
 }
-
 .instrument{
     border: 1px solid grey;
     padding: 5px;
@@ -134,12 +128,88 @@ header{
 .visual{
     position: relative;
     width: 700px;
-    height: 200px;
-    border: 1px solid grey;
+    height: 100px;
 }
 .looper{
     position: relative;
     width: 700px;
-    height: 200px;
+    height: 300px;
     border: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#loopScreen{
+    border: 1px solid white;
+    width: 500px;
+    height: 200px;
+}
+.loopButtons{
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.loopButtons p{
+    text-align: center;
+    color: black;
+}
+.state{
+    border: 2px solid black;
+    background-color: white;
+    margin: 5px 0;
+    height: 45px;
+    width: 65px;
+}
+.state:hover {
+    border: 2px solid white;
+}
+.state:active {
+    height: 40px;
+    width: 60px;
+    margin: 7.5px 0;
+}
+.clearLoop{
+    border: 2px solid black;
+    background-color: red;
+    margin: 5px 0;
+    height: 45px;
+    width: 65px;
+}
+.clearLoop:hover {
+    border: 2px solid white;
+}
+.clearLoop:active {
+    height: 40px;
+    width: 60px;
+    margin: 7.5px 0;
+}
+.loopControls{
+    border: 1px solid grey;
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%
+}
+.loopButton{
+    border: 2px solid black;
+    background-color: blue;
+    margin: 5px 0;
+    height: 45px;
+    width: 65px;
+}
+.loopButton:hover {
+    border: 2px solid white;
+}
+.looopButton:active {
+    height: 40px;
+    width: 60px;
+    margin: 7.5px 0;
+}
+.rightLoopPanel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }

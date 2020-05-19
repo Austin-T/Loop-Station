@@ -124,7 +124,42 @@
             </div>
         </div>
         <div class="looper">
-            <h2>Looper</h2>
+            <div class="loopControls">
+                <div class="title">
+                    <h2>Looper</h2>
+                </div>
+                <p>Play/Pause</p>
+                <div class="loopButton" id="play"></div>
+                <p>Metronome</p>
+                <div class="loopButton" id="metronome"></div>
+                <div class="sliderBox">
+                    <p>Tempo</p>
+                    <input type="range" min="0" max="100" value="50" class="slider" id="tempoRange">
+                </div>
+            </div>
+            <div class="rightLoopPanel">
+                <div class="loopButtons">
+                    <div class="state" id="state1">
+                        <p>Save State</p>
+                    </div>
+                    <div class="state" id="state12">
+                        <p>Save State</p>
+                    </div>
+                    <div class="state" id="state3">
+                        <p>Save State</p>
+                    </div>
+                    <div class="state" id="state4">
+                        <p>Save State</p>
+                    </div>
+                    <div class="state" id="state5">
+                        <p>Save State</p>
+                    </div>
+                    <div class="clearLoop" id="clearLoop">
+                        <p>Clear Loop</p>
+                    </div>
+                </div>
+                <canvas id="loopScreen"></canvas>
+            </div>
         </div>
         <div class="visual"></div>
     </div>
